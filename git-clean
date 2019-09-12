@@ -1,0 +1,10 @@
+# Credenciales
+git config --global --unset user.name
+git config --global --unset user.email
+
+# Manager de credenciales
+cmdkey -delete:git:https://github.com
+
+# Remotos
+git remote rm origin
+git remote rm github

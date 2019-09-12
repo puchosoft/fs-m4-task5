@@ -1,0 +1,41 @@
+body, html {
+  height: 100%;
+}
+
+.bg {
+  background-image: url('../img/bg-image-1.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-blue-50{
+    background: rgba(51, 181, 229, 0.5)!important;
+}
+
+.bg-black-50{
+    background: rgba(0, 0, 0, 0.5)!important;
+}
+
+h4,h3,h1{
+  width:fit-content;
+  text-shadow: 2px 2px 1px black;
+}
+
+.table{
+  width:fit-content;
+  vertical-align: middle;
+
+}
+
+tr{
+  height: 2em;
+}
+
+td, th {
+  width: 2em;
+  text-align: center;
+  vertical-align: middle;
+  border:inherit;
+}

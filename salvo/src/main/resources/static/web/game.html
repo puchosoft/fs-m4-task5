@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ship Locations!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/game.css">
+</head>
+
+<body>
+  <div class="container-fluid bg">
+    <div class="row bg-black-50">
+      <h1 class="display-3 font-weight-bold font-italic mx-auto text-warning">Salvo</h1>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="mx-auto my-4 text-warning bg-black-50 rounded" id="you-info"></h3>
+        <h4 class="mx-auto my-3 text-warning bg-black-50 rounded">&nbsp Yours ships : &nbsp</h4>
+
+        <table class="mx-auto mt-4 table table-bordered table-sm table-responsive-lg bg-blue-50">
+          <thead id="ship-headers">
+          </thead>
+          <tbody id="ship-rows">
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <h3 class="mx-auto my-4 text-warning bg-black-50 rounded" id="enemy-info"></h3>
+        <h4 class="mx-auto my-3 text-warning bg-black-50 rounded">&nbsp Yours salvoes : &nbsp</h4>
+
+        <table class="mx-auto mt-4 table table-bordered table-sm table-responsive-lg bg-blue-50">
+          <thead id="salvo-headers">
+          </thead>
+          <tbody id="salvo-rows">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="scripts/game.js"></script>
+</body>
+</html>
