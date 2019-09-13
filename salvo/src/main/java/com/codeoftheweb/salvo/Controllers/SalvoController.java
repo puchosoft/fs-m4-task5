@@ -19,31 +19,31 @@ import static java.util.stream.Collectors.toSet;
 public class SalvoController {
 
   @Autowired
-  private GameRepository gRepository;
+  private GameRepository gameRepo;
 
   @Autowired
-  private GamePlayerRepository gpRepository;
+  private GamePlayerRepository gamePlayerRepo;
 
   // Genera un JSON con la informacion de los games en la URL /api/games
   @RequestMapping("/games")
   public List<Object> getGameInfo() {
-    return gRepository.findAll().stream().map(g -> g.toDTO()).collect(toList());
+    return gameRepo.findAll().stream().map(game -> game.toDTO()).collect(toList());
   }
 
   // Genera un JSON con la informacion de un game especifico en la URL /api/game_view/nn
   @RequestMapping("/game_view/{gamePlayerId}")
   public Map<String, Object> getGameView(@PathVariable long gamePlayerId) {
-    GamePlayer gamePlayer = gpRepository.getOne(gamePlayerId);
+    GamePlayer gamePlayer = gamePlayerRepo.getOne(gamePlayerId);
     Map<String, Object> gameDTO = gamePlayer.getGame().toDTO();
 
     gameDTO.put("ships", gamePlayer.getShips()
         .stream()
-        .map(s -> s.toDTO())
+        .map(ship -> ship.toDTO())
     );
 
     gameDTO.put("salvoes", gamePlayer.getGame().getGamePlayers()
         .stream()
-        .map(gp -> gp.toSalvoDTO())
+        .map(game_gamePlayer -> game_gamePlayer.toSalvoDTO())
         .collect(toSet())
     );
     return gameDTO;
