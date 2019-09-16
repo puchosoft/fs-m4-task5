@@ -9,6 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource
 public interface GamePlayerRepository extends JpaRepository<GamePlayer, Long> {
 
-  public GamePlayer findByGameAndPlayer(Game game, Player player);
+  GamePlayer findByGameAndPlayer(Game game, Player player);
 
 }

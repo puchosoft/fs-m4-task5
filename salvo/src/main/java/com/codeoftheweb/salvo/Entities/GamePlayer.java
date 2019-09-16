@@ -75,11 +75,17 @@ public class GamePlayer {
         .collect(toList());
   }
 
+  public Score getScore() {
+    return this.player.getGameScore(this.game);
+  }
+
   // Salida DTO para los objetos GamePlayer
   public Map<String, Object> toDTO() {
     Map<String, Object> dto = new LinkedHashMap<>();
     dto.put("id", this.id);
     dto.put("player", this.player.toDTO());
+    Score score = this.getScore();
+    dto.put("score", (score != null? score.getScore() : null));
     return dto;
   }
 

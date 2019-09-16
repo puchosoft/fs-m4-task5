@@ -19,6 +19,10 @@ public class Game {
   @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
   private Set<GamePlayer> gamePlayers;
 
+  // Relacion con la tabla "scores"
+  @OneToMany(mappedBy = "game", fetch = FetchType.EAGER)
+  private Set<Score> scores;
+
   private Date creationDate;
 
   public Game() {
@@ -47,6 +51,13 @@ public class Game {
     return this.gamePlayers
         .stream()
         .sorted((gp1,gp2) -> (int)(gp1.getId() - gp2.getId()))
+        .collect(Collectors.toCollection(LinkedHashSet::new));
+  }
+
+  public Set<Score> getScores(){
+    return this.scores
+        .stream()
+        .sorted((score1,score2) -> (int)(score1.getId() - score2.getId()))
         .collect(Collectors.toCollection(LinkedHashSet::new));
   }
 

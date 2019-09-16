@@ -26,6 +26,10 @@ public class Player {
   @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
   private Set<GamePlayer> gamePlayers;
 
+  // Relacion con la tabla "scores"
+  @OneToMany(mappedBy = "player", fetch = FetchType.EAGER)
+  private Set<Score> scores;
+
   public Player() {
   }
 
@@ -48,6 +52,13 @@ public class Player {
         .sorted((gp1,gp2) -> (int)(gp1.getId() - gp2.getId()))
         .map(gp -> gp.getGame())
         .collect(toList());
+  }
+
+  public Score getGameScore(Game game) {
+    return this.scores
+        .stream()
+        .filter(score -> score.getGame().equals(game))
+        .findFirst().orElse(null);
   }
 
   // Salida DTO para los objetos Player
